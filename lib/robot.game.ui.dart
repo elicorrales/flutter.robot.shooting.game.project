@@ -6,6 +6,8 @@
 
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart'; // kPrimaryButton / kSecondaryButton
+import 'package:flutter/scheduler.dart'; // Ticker
 import 'package:flutter/services.dart';
 
 import 'robot.game.state.dart';
