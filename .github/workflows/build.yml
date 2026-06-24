@@ -10,6 +10,13 @@ jobs:
   windows:
     runs-on: windows-latest
 
+    # MSVC on the runner (VS 18 / 14.51) makes the deprecated
+    # <experimental/coroutine> header a hard error (STL1011). audioplayers_windows
+    # still includes it, so silence it for every cl.exe call via the CL env var
+    # (MSVC auto-prepends CL to each compiler invocation, including plugins).
+    env:
+      CL: /D_SILENCE_EXPERIMENTAL_COROUTINE_DEPRECATION_WARNINGS
+
     steps:
       - uses: actions/checkout@v4
 
